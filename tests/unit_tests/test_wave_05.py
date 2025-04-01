@@ -7,17 +7,17 @@ TEST_CUSTOM_ID = 12345
 
 # ~~~~~ Clothing Tests ~~~~~
 
-@pytest.mark.skip
+#@pytest.mark.skip
 def test_clothing_has_default_uuid_length_id():
     clothing = Clothing()
     check_for_default_uuid_length_id(clothing)
 
-@pytest.mark.skip
+#@pytest.mark.skip
 def test_clothing_has_expected_category_and_custom_id():
     clothing = Clothing(id=TEST_CUSTOM_ID)
     check_category_and_custom_id(clothing, TEST_CUSTOM_ID, "Clothing")
 
-@pytest.mark.skip
+#@pytest.mark.skip
 def test_clothing_has_expected_default_to_str():
     clothing = Clothing(id=TEST_CUSTOM_ID)
     expected_str = (
