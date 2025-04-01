@@ -22,6 +22,21 @@ class Vendor:
         pass
 
 
+    
+    def swap_items(self, other_vendor, my_item, their_item): # test fatimah.swap_items(jolie, item_b, item_d) python automatically provide self.
+        if my_item not in self.inventory or their_item not in other_vendor.inventory:
+            return False
+    
+        self.inventory.remove(my_item)
+        other_vendor.inventory.remove(their_item)
+    
+        self.inventory.append(their_item)
+        other_vendor.inventory.append(my_item)
+    
+        return True
+
+
+
     def swap_first_item(self,vendor): 
         #swaps first item of vendor arguement, with first item of inventory of the instance vendor calling the method
         
@@ -36,4 +51,3 @@ class Vendor:
         inventory2[0] = helper
 
         return inventory2
-
