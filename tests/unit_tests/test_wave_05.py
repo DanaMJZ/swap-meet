@@ -67,17 +67,17 @@ def test_decor_has_expected_to_str_with_custom_size():
 
 # ~~~~~ Electronics Tests ~~~~~
 
-@pytest.mark.skip
+#@pytest.mark.skip
 def test_electronics_has_default_uuid_length_id():
     electronics = Electronics()
     check_for_default_uuid_length_id(electronics)
 
-@pytest.mark.skip
+#@pytest.mark.skip
 def test_electronics_has_expected_category_and_custom_id():
     electronics = Electronics(id=TEST_CUSTOM_ID)
     check_category_and_custom_id(electronics, TEST_CUSTOM_ID, "Electronics")
 
-@pytest.mark.skip
+#@pytest.mark.skip
 def test_electronics_has_expected_default_to_str():
     electronics = Electronics(id=TEST_CUSTOM_ID)
     expected_str = (
@@ -86,7 +86,7 @@ def test_electronics_has_expected_default_to_str():
     )
     assert str(electronics) == expected_str
 
-@pytest.mark.skip
+#@pytest.mark.skip
 def test_electronics_has_expected_to_str_with_custom_type():
     electronics = Electronics(id=TEST_CUSTOM_ID, type="Mobile Phone")
     expected_str = (
