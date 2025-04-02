@@ -18,10 +18,6 @@ class Vendor:
                 return item
         return None         # Returns None if no match is found
     
-    def swap_item(vendor, item1,item2):
-        pass
-
-
     
     def swap_items(self, other_vendor, my_item, their_item): # test fatimah.swap_items(jolie, item_b, item_d) python automatically provide self.
         if my_item not in self.inventory or their_item not in other_vendor.inventory:
@@ -51,3 +47,32 @@ class Vendor:
         inventory2[0] = helper
 
         return inventory2
+    
+    def get_by_category(self, category):
+# create empty list called result list
+# we need to loop over inventory items, 
+# at each iteration we call get_category function subclasses
+# compare input category with item category.
+# if same categories add to result list.
+
+        result_list = []
+        for item in self.inventory:      # assuming inventory is part of the other 4 classes
+            item_category = item.get_category()  # get_category() is a ref to other classes [composition]
+            if item_category == category:
+                result_list.append(item)
+        return result_list
+    
+
+    def get_best_by_category(self, category):
+        
+        result_dict = {"item":None, "condition":0}
+        
+        for item in self.inventory:      
+            
+            if item.get_category() == category:
+                if item.condition >= result_dict["condition"]:
+                    result_dict["item"] == item
+                    result_dict["condition"] == item.condition   
+                    
+        return result_dict["item"]
+        
