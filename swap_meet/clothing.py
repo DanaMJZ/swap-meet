@@ -8,8 +8,6 @@ class Clothing(Item):
     def get_category(self):
         return "Clothing"
     
-    #def __str__(self):
-     #   return f"An object of type Clothing with id {self.id}. \nIt is made from {self.fabric} fabric."
     
     def __str__(self):
         return f"An object of type Clothing with id {self.id}. It is made from {self.fabric} fabric."
