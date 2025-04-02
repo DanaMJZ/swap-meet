@@ -26,7 +26,7 @@ def test_clothing_has_expected_default_to_str():
     )
     assert str(clothing) == expected_str
 
-@pytest.mark.skip
+#@pytest.mark.skip
 def test_clothing_has_expected_to_str_with_custom_fabric():
     clothing = Clothing(id=TEST_CUSTOM_ID, fabric="Pinstriped")
     expected_str = (
