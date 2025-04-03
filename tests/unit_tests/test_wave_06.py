@@ -47,13 +47,13 @@ def test_best_by_category():
     tai = Vendor(
         inventory=[item_a, item_b, item_c, item_d, item_e]
     )
-
+    # print(tai.inventory)
     best_item = tai.get_best_by_category("Clothing")
 
     #assert best_item.get_category() == "Clothing"
     assert best_item.condition == pytest.approx(4.0)
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_best_by_category_no_matches_is_none():
     item_a = Decor(condition=2.0)
     item_b = Decor(condition=2.0)
@@ -66,7 +66,7 @@ def test_best_by_category_no_matches_is_none():
 
     assert best_item is None
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_best_by_category_with_duplicates():
     # Arrange
     item_a = Clothing(condition=2.0)
@@ -83,7 +83,7 @@ def test_best_by_category_with_duplicates():
     assert best_item.get_category() == "Clothing"
     assert best_item.condition == pytest.approx(4.0)
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_swap_best_by_category():
     # Arrange
     # me
@@ -108,8 +108,16 @@ def test_swap_best_by_category():
         my_priority="Clothing",
         their_priority="Decor"
     )
+    assert result 
+    assert len(jesse.inventory) == 3
+    assert len(tai.inventory) == 3
+    assert item_f in jesse.inventory 
+    assert item_c in tai.inventory 
+    assert item_a in tai.inventory
+    assert item_d in jesse.inventory
+    
 
-    raise Exception("Complete this test according to comments below.")
+    # raise Exception("Complete this test according to comments below.")
     # *********************************************************************
     # ****** Complete Assert Portion of this test **********
     # *********************************************************************
