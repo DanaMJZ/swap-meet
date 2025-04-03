@@ -79,8 +79,8 @@ class Vendor:
     def swap_best_by_category(self, other_vendor,my_priority, their_priority):
         
         
-        their_best = self.get_best_by_category(their_priority) # Jesse best comes from tai inv
-        my_best = other_vendor.get_best_by_category(my_priority)  # tai best comes from jesse inv
+        my_best = self.get_best_by_category(their_priority) # what Iam giving
+        their_best = other_vendor.get_best_by_category(my_priority)  # what iam getting
 
         if my_best not in self.inventory or their_best not in other_vendor.inventory:
             return False
