@@ -75,4 +75,17 @@ class Vendor:
                     result_dict["condition"] == item.condition   
                     
         return result_dict["item"]
+    
+
+    # list1=[{a:1},{b:2},{c:3}]
+
+    # helper_vars = 0
+    # helper_name = None
+
+    # for i in list:
+    #     if i[2] >= helper_vars:
+    #         i[2] = helper_vars
+    #         i[1] = helper_name
+                
+    # return helper_name
         
