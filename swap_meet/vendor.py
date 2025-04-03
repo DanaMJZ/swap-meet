@@ -1,3 +1,4 @@
+
 class Vendor:
     def __init__(self, inventory=None):
         self.inventory = inventory if inventory is not None else []
@@ -48,12 +49,13 @@ class Vendor:
 
         return inventory2
     
+
     def get_by_category(self, category):
-# create empty list called result list
-# we need to loop over inventory items, 
-# at each iteration we call get_category function subclasses
-# compare input category with item category.
-# if same categories add to result list.
+        # create empty list called result list
+        # we need to loop over inventory items, 
+        # at each iteration we call get_category function subclasses
+        # compare input category with item category.
+        # if same categories add to result list.
 
         result_list = []
         for item in self.inventory:      # assuming inventory is part of the other 4 classes
@@ -64,28 +66,30 @@ class Vendor:
     
 
     def get_best_by_category(self, category):
-        
-        result_dict = {"item":None, "condition":0}
-        
-        for item in self.inventory:      
-            
-            if item.get_category() == category:
-                if item.condition >= result_dict["condition"]:
-                    result_dict["item"] == item
-                    result_dict["condition"] == item.condition   
-                    
-        return result_dict["item"]
+        best_item = None
+        highest_condition = 0  # Start with a very low condition
+
+        for item in self.inventory:
+            if item.get_category() == category and item.condition >= highest_condition:
+                best_item = item
+                highest_condition = item.condition  
+
+        return best_item
     
+    def swap_best_by_category(self, other_vendor,my_priority, their_priority):
+        
+        
+        their_best = self.get_best_by_category(their_priority) # Jesse best comes from tai inv
+        my_best = other_vendor.get_best_by_category(my_priority)  # tai best comes from jesse inv
 
-    # list1=[{a:1},{b:2},{c:3}]
-
-    # helper_vars = 0
-    # helper_name = None
-
-    # for i in list:
-    #     if i[2] >= helper_vars:
-    #         i[2] = helper_vars
-    #         i[1] = helper_name
-                
-    # return helper_name
+        if my_best not in self.inventory or their_best not in other_vendor.inventory:
+            return False
+    
+        self.inventory.remove(my_best)
+        other_vendor.inventory.remove(their_best)
+    
+        self.inventory.append(their_best)
+        other_vendor.inventory.append(my_best)
+    
+        return True
         
